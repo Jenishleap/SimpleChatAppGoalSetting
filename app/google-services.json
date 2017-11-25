@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "932111485576",
+    "firebase_url": "https://simplechatgoalsetting.firebaseio.com",
+    "project_id": "simplechatgoalsetting",
+    "storage_bucket": "simplechatgoalsetting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932111485576:android:6a1b9bc68be37e1c",
+        "android_client_info": {
+          "package_name": "com.example.leapfrog.simplechat_goalsetting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932111485576-m720tclgig7qk1ci46lt7tukj01bolop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.leapfrog.simplechat_goalsetting",
+            "certificate_hash": "e7a2da9735b05976d24faae2d16fdf8160759696"
+          }
+        },
+        {
+          "client_id": "932111485576-edr7q69j0ccp8mmot6d9pvkgd65jej7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqUi5yFYm4zZFl-lFsMUv3u5DqvIQswY4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932111485576-edr7q69j0ccp8mmot6d9pvkgd65jej7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
