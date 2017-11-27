@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+
 import com.example.leapfrog.simplechat_goalsetting.Config;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -45,6 +46,7 @@ public class Chat extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         reference1 = new Firebase(Config.BASE_URL + Config.MESSAGES + "/" + UserDetails.username + "_" + UserDetails.chatWith);
         reference2 = new Firebase(Config.BASE_URL + Config.MESSAGES + "/" + UserDetails.chatWith + "_" + UserDetails.username);
+
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
