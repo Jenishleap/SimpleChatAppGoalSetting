@@ -1,4 +1,4 @@
-package com.example.leapfrog.simplechat_goalsetting.firebase;
+package com.example.leapfrog.simplechat_goalsetting.firebase.group;
 
 import java.util.Date;
 

@@ -1,22 +1,20 @@
-package com.example.leapfrog.simplechat_goalsetting.firebase;
+package com.example.leapfrog.simplechat_goalsetting.firebase.group;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.leapfrog.simplechat_goalsetting.R;
-import com.example.leapfrog.simplechat_goalsetting.firebase.adapter.MessageAdapter;
+import com.example.leapfrog.simplechat_goalsetting.firebase.group.adapter.MessageAdapter;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
