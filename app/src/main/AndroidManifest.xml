@@ -7,13 +7,14 @@
 
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".firebase.FireBaseActivity">
+        <activity android:name=".firebase.onetoone.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +22,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".firebase.group.FireBaseActivity"></activity>
+        <activity android:name=".firebase.onetoone.Register"></activity>
+        <activity android:name=".firebase.onetoone.Users"></activity>
+        <activity android:name=".firebase.onetoone.Chat"></activity>
 
     </application>
 

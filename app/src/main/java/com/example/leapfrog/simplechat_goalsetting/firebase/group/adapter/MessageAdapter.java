@@ -1,4 +1,4 @@
-package com.example.leapfrog.simplechat_goalsetting.firebase.adapter;
+package com.example.leapfrog.simplechat_goalsetting.firebase.group.adapter;
 
 
 import android.text.format.DateFormat;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.leapfrog.simplechat_goalsetting.R;
-import com.example.leapfrog.simplechat_goalsetting.firebase.ChatMessage;
-import com.example.leapfrog.simplechat_goalsetting.firebase.FireBaseActivity;
+import com.example.leapfrog.simplechat_goalsetting.firebase.group.ChatMessage;
+import com.example.leapfrog.simplechat_goalsetting.firebase.group.FireBaseActivity;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.DatabaseReference;
 
