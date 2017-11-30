@@ -18,7 +18,7 @@ public class LoginContract {
 
     public interface LoginPresenter extends Presenter<LoginView> {
 
-        void loginWithUserName(String username, String password);
+        void loginWithUsernameAndPassword(String username, String password);
 
     }
 

@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".firebase.onetoone.Login">
+        <activity android:name=".firebase.onetoone.login.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +23,7 @@
         </activity>
 
         <activity android:name=".firebase.group.FireBaseActivity"></activity>
-        <activity android:name=".firebase.onetoone.Register"></activity>
+        <activity android:name=".firebase.onetoone.register.Register"></activity>
         <activity android:name=".firebase.onetoone.Users"></activity>
         <activity android:name=".firebase.onetoone.Chat"></activity>
 

@@ -1,8 +1,8 @@
 package com.example.leapfrog.simplechat_goalsetting;
 
 
-import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.Login;
-import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.Register;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login.Login;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.register.Register;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.Users;
 
 import javax.inject.Singleton;

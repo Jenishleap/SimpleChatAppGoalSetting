@@ -25,7 +25,7 @@ public class LoginPresenterImpl extends BasePresenter<LoginContract.LoginView> i
     }
 
     @Override
-    public void loginWithUserName(String username, String password) {
+    public void loginWithUsernameAndPassword(String username, String password) {
         this.username = username;
         this.password = password;
 
@@ -82,4 +82,5 @@ public class LoginPresenterImpl extends BasePresenter<LoginContract.LoginView> i
         }
         return true;
     }
+
 }
