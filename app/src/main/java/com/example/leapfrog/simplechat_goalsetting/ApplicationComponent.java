@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {ApplicationModule.class, NetworkModule.class})
+@Component(modules = {ApplicationModule.class, NetworkModule.class, PresenterModule.class})
 public interface ApplicationComponent {
 
     void inject(Login login);
@@ -18,5 +18,6 @@ public interface ApplicationComponent {
     void inject(Register register);
 
     void inject(Users users);
+
 
 }

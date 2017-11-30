@@ -7,10 +7,6 @@ import android.support.multidex.MultiDex;
 import javax.inject.Inject;
 
 
-/**
- * Created by leapfrog on 11/17/17.
- */
-
 public class MyApplication extends Application {
 
     private ApplicationComponent mApplicationComponent;
