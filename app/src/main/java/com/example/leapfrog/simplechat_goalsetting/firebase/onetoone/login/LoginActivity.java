@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.example.leapfrog.simplechat_goalsetting.MvpBaseActivity;
 import com.example.leapfrog.simplechat_goalsetting.MyApplication;
 import com.example.leapfrog.simplechat_goalsetting.R;
-import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.register.Register;
-import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.Users;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.register.RegisterActivity;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.UsersActivity;
 import com.example.leapfrog.simplechat_goalsetting.utils.UiUtils;
 
 import butterknife.BindView;
@@ -44,7 +44,7 @@ public class LoginActivity extends MvpBaseActivity<LoginPresenterImpl> implement
 
     @OnClick(R.id.register)
     public void startRegisterActivity() {
-        startActivity(new Intent(LoginActivity.this, Register.class));
+        startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
     }
 
     @OnClick(R.id.loginButton)
@@ -85,7 +85,7 @@ public class LoginActivity extends MvpBaseActivity<LoginPresenterImpl> implement
 
     @Override
     public void onLoginSuccess() {
-        startActivity(new Intent(LoginActivity.this, Users.class));
+        startActivity(new Intent(LoginActivity.this, UsersActivity.class));
     }
 
 }

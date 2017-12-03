@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 
 
-public class Users extends MvpBaseActivity<UsersPresenterImpl> implements UsersContract.UsersView {
+public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implements UsersContract.UsersView {
 
     @BindView(R.id.usersList)
     ListView usersList;
@@ -90,7 +90,7 @@ public class Users extends MvpBaseActivity<UsersPresenterImpl> implements UsersC
     }
 
     private void startChatActivity() {
-        startActivity(new Intent(Users.this, ChatActivity.class));
+        startActivity(new Intent(UsersActivity.this, ChatActivity.class));
     }
 
 }

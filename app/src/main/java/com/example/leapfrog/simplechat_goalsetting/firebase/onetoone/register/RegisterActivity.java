@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 
-public class Register extends MvpBaseActivity<RegisterPresenterImpl> implements RegisterContract.RegisterView {
+public class RegisterActivity extends MvpBaseActivity<RegisterPresenterImpl> implements RegisterContract.RegisterView {
 
     @BindView(R.id.username)
     EditText username;
@@ -39,7 +39,7 @@ public class Register extends MvpBaseActivity<RegisterPresenterImpl> implements 
 
     @OnClick(R.id.login)
     public void startLoginActivity() {
-        startActivity(new Intent(Register.this, LoginActivity.class));
+        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
     }
 
     @OnClick(R.id.registerButton)

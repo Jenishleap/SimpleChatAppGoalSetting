@@ -3,8 +3,8 @@ package com.example.leapfrog.simplechat_goalsetting;
 
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat.ChatActivity;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login.LoginActivity;
-import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.register.Register;
-import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.Users;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.register.RegisterActivity;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.UsersActivity;
 
 import javax.inject.Singleton;
 
@@ -16,9 +16,9 @@ public interface ApplicationComponent {
 
     void inject(LoginActivity login);
 
-    void inject(Register register);
+    void inject(RegisterActivity register);
 
-    void inject(Users users);
+    void inject(UsersActivity users);
 
     void inject(ChatActivity chat);
 
