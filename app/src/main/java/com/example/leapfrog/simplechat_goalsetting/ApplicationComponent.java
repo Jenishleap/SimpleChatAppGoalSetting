@@ -1,6 +1,7 @@
 package com.example.leapfrog.simplechat_goalsetting;
 
 
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat.Chat;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login.Login;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.register.Register;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.Users;
@@ -19,5 +20,6 @@ public interface ApplicationComponent {
 
     void inject(Users users);
 
+    void inject(Chat chat);
 
 }

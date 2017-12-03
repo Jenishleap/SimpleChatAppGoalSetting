@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SimpleChat-GoalSetting</string>
+    <string name="empty_message">Empty Message</string>
 </resources>

@@ -25,7 +25,7 @@
         <activity android:name=".firebase.group.FireBaseActivity"></activity>
         <activity android:name=".firebase.onetoone.register.Register"></activity>
         <activity android:name=".firebase.onetoone.Users"></activity>
-        <activity android:name=".firebase.onetoone.Chat"></activity>
+        <activity android:name=".firebase.onetoone.chat.Chat"></activity>
 
     </application>
 

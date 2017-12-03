@@ -1,11 +1,9 @@
 package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,23 +13,13 @@ import android.widget.TextView;
 import com.example.leapfrog.simplechat_goalsetting.MvpBaseActivity;
 import com.example.leapfrog.simplechat_goalsetting.MyApplication;
 import com.example.leapfrog.simplechat_goalsetting.R;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat.Chat;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.users.UsersContract;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.users.UsersPresenterImpl;
-import com.google.gson.JsonObject;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
-import javax.inject.Inject;
 
 import butterknife.BindView;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.observers.DisposableObserver;
-import io.reactivex.schedulers.Schedulers;
 
 
 public class Users extends MvpBaseActivity<UsersPresenterImpl> implements UsersContract.UsersView {

@@ -1,8 +1,7 @@
-package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone;
+package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -11,8 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-
+import com.example.leapfrog.simplechat_goalsetting.BaseActivity;
 import com.example.leapfrog.simplechat_goalsetting.Config;
+import com.example.leapfrog.simplechat_goalsetting.MyApplication;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.UserDetails;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -22,47 +23,45 @@ import com.example.leapfrog.simplechat_goalsetting.R;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 
-public class Chat extends AppCompatActivity {
 
+public class Chat extends BaseActivity {
 
+    @BindView(R.id.layout1)
     LinearLayout layout;
+
+    @BindView(R.id.sendButton)
     ImageView sendButton;
+
+    @BindView(R.id.messageArea)
     EditText messageArea;
+
+    @BindView(R.id.scrollView)
     ScrollView scrollView;
+
     Firebase reference1, reference2;
 
 
     @Override
+    protected int getLayout() {
+        return R.layout.activity_chat;
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
-
-        layout = (LinearLayout) findViewById(R.id.layout1);
-        sendButton = (ImageView) findViewById(R.id.sendButton);
-        messageArea = (EditText) findViewById(R.id.messageArea);
-        scrollView = (ScrollView) findViewById(R.id.scrollView);
 
         Firebase.setAndroidContext(this);
+
         reference1 = new Firebase(Config.BASE_URL + Config.MESSAGES + "/" + UserDetails.username + "_" + UserDetails.chatWith);
         reference2 = new Firebase(Config.BASE_URL + Config.MESSAGES + "/" + UserDetails.chatWith + "_" + UserDetails.username);
 
+        addEventListener();
+    }
 
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String messageText = messageArea.getText().toString();
-
-                if (!messageText.equals("")) {
-                    Map<String, String> map = new HashMap<String, String>();
-                    map.put("message", messageText);
-                    map.put("user", UserDetails.username);
-                    reference1.push().setValue(map);
-                    reference2.push().setValue(map);
-                }
-            }
-        });
-
+    private void addEventListener() {
         reference1.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -99,7 +98,27 @@ public class Chat extends AppCompatActivity {
         });
     }
 
-    public void addMessageBox(String message, int type) {
+
+    @Override
+    protected void injectDagger() {
+        ((MyApplication) getApplication()).getApplicationComponent().inject(this);
+    }
+
+
+    @OnClick(R.id.sendButton)
+    public void sendMessage() {
+        String messageText = messageArea.getText().toString();
+
+        if (!messageText.equals("")) {
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("message", messageText);
+            map.put("user", UserDetails.username);
+            reference1.push().setValue(map);
+            reference2.push().setValue(map);
+        }
+    }
+
+    private void addMessageBox(String message, int type) {
         TextView textView = new TextView(Chat.this);
         textView.setText(message);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -115,5 +134,5 @@ public class Chat extends AppCompatActivity {
         layout.addView(textView);
         scrollView.fullScroll(View.FOCUS_DOWN);
     }
-}
 
+}
