@@ -27,7 +27,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 
-public class Chat extends BaseActivity {
+public class ChatActivity extends BaseActivity {
 
     @BindView(R.id.layout1)
     LinearLayout layout;
@@ -119,7 +119,7 @@ public class Chat extends BaseActivity {
     }
 
     private void addMessageBox(String message, int type) {
-        TextView textView = new TextView(Chat.this);
+        TextView textView = new TextView(ChatActivity.this);
         textView.setText(message);
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp.setMargins(0, 0, 0, 10);

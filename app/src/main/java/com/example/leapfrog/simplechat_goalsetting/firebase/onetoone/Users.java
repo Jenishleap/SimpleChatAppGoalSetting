@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.example.leapfrog.simplechat_goalsetting.MvpBaseActivity;
 import com.example.leapfrog.simplechat_goalsetting.MyApplication;
 import com.example.leapfrog.simplechat_goalsetting.R;
-import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat.Chat;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat.ChatActivity;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.users.UsersContract;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.users.UsersPresenterImpl;
 
@@ -90,7 +90,7 @@ public class Users extends MvpBaseActivity<UsersPresenterImpl> implements UsersC
     }
 
     private void startChatActivity() {
-        startActivity(new Intent(Users.this, Chat.class));
+        startActivity(new Intent(Users.this, ChatActivity.class));
     }
 
 }
