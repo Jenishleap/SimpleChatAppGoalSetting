@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.example.leapfrog.simplechat_goalsetting.MvpBaseActivity;
 import com.example.leapfrog.simplechat_goalsetting.MyApplication;
 import com.example.leapfrog.simplechat_goalsetting.R;
-import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login.Login;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login.LoginActivity;
 import com.example.leapfrog.simplechat_goalsetting.utils.UiUtils;
 
 import butterknife.BindView;
@@ -39,7 +39,7 @@ public class Register extends MvpBaseActivity<RegisterPresenterImpl> implements 
 
     @OnClick(R.id.login)
     public void startLoginActivity() {
-        startActivity(new Intent(Register.this, Login.class));
+        startActivity(new Intent(Register.this, LoginActivity.class));
     }
 
     @OnClick(R.id.registerButton)

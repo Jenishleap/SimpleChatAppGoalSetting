@@ -17,7 +17,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 
-public class Login extends MvpBaseActivity<LoginPresenterImpl> implements LoginContract.LoginView {
+public class LoginActivity extends MvpBaseActivity<LoginPresenterImpl> implements LoginContract.LoginView {
 
 
     @BindView(R.id.register)
@@ -44,7 +44,7 @@ public class Login extends MvpBaseActivity<LoginPresenterImpl> implements LoginC
 
     @OnClick(R.id.register)
     public void startRegisterActivity() {
-        startActivity(new Intent(Login.this, Register.class));
+        startActivity(new Intent(LoginActivity.this, Register.class));
     }
 
     @OnClick(R.id.loginButton)
@@ -85,7 +85,7 @@ public class Login extends MvpBaseActivity<LoginPresenterImpl> implements LoginC
 
     @Override
     public void onLoginSuccess() {
-        startActivity(new Intent(Login.this, Users.class));
+        startActivity(new Intent(LoginActivity.this, Users.class));
     }
 
 }

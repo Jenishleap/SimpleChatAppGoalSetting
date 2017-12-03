@@ -2,7 +2,7 @@ package com.example.leapfrog.simplechat_goalsetting;
 
 
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat.ChatActivity;
-import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login.Login;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login.LoginActivity;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.register.Register;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.Users;
 
@@ -14,7 +14,7 @@ import dagger.Component;
 @Component(modules = {ApplicationModule.class, NetworkModule.class, PresenterModule.class})
 public interface ApplicationComponent {
 
-    void inject(Login login);
+    void inject(LoginActivity login);
 
     void inject(Register register);
 
