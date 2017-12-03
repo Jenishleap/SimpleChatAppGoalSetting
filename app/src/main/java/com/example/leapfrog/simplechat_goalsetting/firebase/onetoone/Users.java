@@ -1,6 +1,7 @@
 package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,8 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.leapfrog.simplechat_goalsetting.MvpBaseActivity;
 import com.example.leapfrog.simplechat_goalsetting.MyApplication;
 import com.example.leapfrog.simplechat_goalsetting.R;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.users.UsersContract;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.users.UsersPresenterImpl;
 import com.google.gson.JsonObject;
 
 import org.json.JSONException;
@@ -23,103 +27,82 @@ import java.util.Iterator;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
 
-public class Users extends AppCompatActivity {
+public class Users extends MvpBaseActivity<UsersPresenterImpl> implements UsersContract.UsersView {
 
-
+    @BindView(R.id.usersList)
     ListView usersList;
-    TextView noUsersText;
-    ArrayList<String> al = new ArrayList<>();
-    int totalUsers = 0;
-    ProgressDialog pd;
 
-    CompositeDisposable compositeDisposable = new CompositeDisposable();
-    public static String TAG = "register";
+    @BindView(R.id.noUsersAvailable)
+    TextView noUsersAvailable;
 
-    @Inject
-    FirebaseService firebaseService;
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_users;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
+        presenter.fetchUsers();
+    }
 
+    @Override
+    protected void injectDagger() {
         ((MyApplication) getApplication()).getApplicationComponent().inject(this);
-
-        usersList = (ListView) findViewById(R.id.usersList);
-        noUsersText = (TextView) findViewById(R.id.noUsersText);
+    }
 
 
+    @Override
+    public void showProgressBar() {
+
+    }
+
+    @Override
+    public void hideProgressBar() {
+
+    }
+
+    @Override
+    public void onFailure(String message) {
+
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
+    public void showUserNoAvailable(boolean show) {
+        noUsersAvailable.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void showUsersList(boolean show) {
+        usersList.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void showUsers(final ArrayList<String> users) {
+        usersList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, users));
         usersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                UserDetails.chatWith = al.get(position);
-                startActivity(new Intent(Users.this, Chat.class));
+                UserDetails.chatWith = users.get(position);
+                startChatActivity();
             }
         });
-
-
-        compositeDisposable.add(firebaseService.registerUser()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableObserver<JsonObject>() {
-                    @Override
-                    public void onNext(JsonObject obj) {
-                        String json_string = obj.toString();
-                        doOnSuccess(json_string);
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                })
-        );
-
-
     }
 
-
-    public void doOnSuccess(String s) {
-        try {
-            JSONObject obj = new JSONObject(s);
-
-            Iterator i = obj.keys();
-            String key = "";
-
-            while (i.hasNext()) {
-                key = i.next().toString();
-
-                if (!key.equals(UserDetails.username)) {
-                    al.add(key);
-                }
-
-                totalUsers++;
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        if (totalUsers <= 1) {
-            noUsersText.setVisibility(View.VISIBLE);
-            usersList.setVisibility(View.GONE);
-        } else {
-            noUsersText.setVisibility(View.GONE);
-            usersList.setVisibility(View.VISIBLE);
-            usersList.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, al));
-        }
-
+    private void startChatActivity() {
+        startActivity(new Intent(Users.this, Chat.class));
     }
+
 }
