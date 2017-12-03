@@ -16,7 +16,6 @@ import io.reactivex.observers.DisposableObserver;
 
 public class UsersPresenterImpl extends BasePresenter<UsersContract.UsersView> implements UsersContract.UsersPresenter {
 
-
     private LoginRepository loginRepository;
 
     ArrayList<String> users = new ArrayList<>();
@@ -28,7 +27,6 @@ public class UsersPresenterImpl extends BasePresenter<UsersContract.UsersView> i
         this.loginRepository = loginRepository;
     }
 
-
     @Override
     public void fetchUsers() {
         addSubscription(loginRepository.loginUser("chandra", "chandra")
@@ -36,7 +34,6 @@ public class UsersPresenterImpl extends BasePresenter<UsersContract.UsersView> i
                 .subscribeWith(new UsersSubscriber())
         );
     }
-
 
     private class UsersSubscriber extends DisposableObserver<JSONObject> {
 
@@ -58,7 +55,6 @@ public class UsersPresenterImpl extends BasePresenter<UsersContract.UsersView> i
         }
     }
 
-
     public void doOnSuccess(JSONObject obj) {
 
         Iterator i = obj.keys();
@@ -73,7 +69,6 @@ public class UsersPresenterImpl extends BasePresenter<UsersContract.UsersView> i
             totalUsers++;
         }
 
-
         if (totalUsers <= 1) {
 
             getView().showUserNoAvailable(true);
@@ -85,4 +80,5 @@ public class UsersPresenterImpl extends BasePresenter<UsersContract.UsersView> i
             getView().showUsers(users);
         }
     }
+
 }

@@ -12,7 +12,7 @@ import retrofit2.http.GET;
 
 public interface FirebaseService {
 
-
     @GET("users.json")
     Observable<JsonObject> registerUser();
+
 }

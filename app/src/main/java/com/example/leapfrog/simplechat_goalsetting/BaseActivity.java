@@ -25,7 +25,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         injectDagger();
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();

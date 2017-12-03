@@ -19,7 +19,6 @@ import butterknife.OnClick;
 
 public class LoginActivity extends MvpBaseActivity<LoginPresenterImpl> implements LoginContract.LoginView {
 
-
     @BindView(R.id.register)
     TextView register;
 

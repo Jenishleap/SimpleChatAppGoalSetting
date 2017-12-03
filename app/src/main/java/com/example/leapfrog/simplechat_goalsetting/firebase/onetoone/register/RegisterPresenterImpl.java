@@ -29,7 +29,6 @@ public class RegisterPresenterImpl extends BasePresenter<RegisterContract.Regist
 
     @Override
     public void registerUser(String username, String password) {
-
         this.username = username;
         this.password = password;
 
@@ -41,9 +40,7 @@ public class RegisterPresenterImpl extends BasePresenter<RegisterContract.Regist
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new RegisterSubscriber())
         );
-
     }
-
 
     private class RegisterSubscriber extends DisposableObserver<JSONObject> {
 

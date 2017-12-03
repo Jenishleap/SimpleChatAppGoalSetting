@@ -15,7 +15,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class LoginRepositoryImpl implements LoginRepository {
 
-
     private FirebaseService firebaseService;
 
     @Inject
@@ -29,7 +28,6 @@ public class LoginRepositoryImpl implements LoginRepository {
                 .map(new Function<JsonObject, JSONObject>() {
                     @Override
                     public JSONObject apply(JsonObject jsonObject) throws Exception {
-                        Log.d("loginrepository", "response is: " + jsonObject);
                         String responseString = jsonObject.toString();
                         JSONObject responseJson = new JSONObject(responseString);
                         return responseJson;
@@ -37,4 +35,5 @@ public class LoginRepositoryImpl implements LoginRepository {
                 })
                 .subscribeOn(Schedulers.io());
     }
+
 }

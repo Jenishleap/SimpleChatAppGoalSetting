@@ -9,7 +9,5 @@ import io.reactivex.Observable;
 
 public interface LoginRepository {
 
-
     Observable<JSONObject> loginUser(String username, String password);
-
 }

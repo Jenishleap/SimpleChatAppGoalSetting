@@ -16,7 +16,6 @@ public class UsersContract {
 
         void showUsers(ArrayList<String> users);
 
-
     }
 
     public interface UsersPresenter extends Presenter<UsersView> {
