@@ -1,9 +1,11 @@
 package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -91,6 +93,33 @@ public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implement
 
     private void startChatActivity() {
         startActivity(new Intent(UsersActivity.this, ChatActivity.class));
+    }
+
+    @Override
+    public void onBackPressed() {
+        showLogOutDialog();
+    }
+
+    private void showLogOutDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(getString(R.string.log_out))
+                .setCancelable(true)
+                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        finish();
+                    }
+                })
+                .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //  Action for 'NO' Button
+                        dialog.cancel();
+                    }
+                });
+
+        //Creating dialog box
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
 }

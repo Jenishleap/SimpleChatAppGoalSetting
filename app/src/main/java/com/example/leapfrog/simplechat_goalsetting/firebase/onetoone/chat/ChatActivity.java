@@ -1,7 +1,9 @@
 package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -25,6 +27,8 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+
+import static java.security.AccessController.getContext;
 
 
 public class ChatActivity extends BaseActivity {
