@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">SimpleChat-GoalSetting</string>
     <string name="empty_message">Empty Message</string>
+    <string name="registering_user">Registering...</string>
+    <string name="loggin_in">Loggin...</string>
+    <string name="error_loggin">Error Login</string>
+    <string name="error_registering">Error Register</string>
+    <string name="login_succesful">Login Succesful</string>
+    <string name="incorrect_password">Password Incorrect</string>
+    <string name="user_not_found">User Not Found</string>
+    <string name="user_already_exists">User Name Already Exists</string>
+    <string name="registration_succesful">User registered succesfully</string>
 </resources>

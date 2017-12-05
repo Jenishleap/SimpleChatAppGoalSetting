@@ -41,7 +41,7 @@ public class ChatActivity extends BaseActivity {
     @BindView(R.id.scrollView)
     ScrollView scrollView;
 
-    Firebase reference1, reference2;
+    Firebase firebaseYouAndFriend, firebaseFriendAndYou;
 
 
     @Override
@@ -55,14 +55,14 @@ public class ChatActivity extends BaseActivity {
 
         Firebase.setAndroidContext(this);
 
-        reference1 = new Firebase(Config.BASE_URL + Config.MESSAGES + "/" + UserDetails.username + "_" + UserDetails.chatWith);
-        reference2 = new Firebase(Config.BASE_URL + Config.MESSAGES + "/" + UserDetails.chatWith + "_" + UserDetails.username);
+        firebaseYouAndFriend = new Firebase(Config.BASE_URL + Config.MESSAGES + "/" + UserDetails.username + "_" + UserDetails.chatWith);
+        firebaseFriendAndYou = new Firebase(Config.BASE_URL + Config.MESSAGES + "/" + UserDetails.chatWith + "_" + UserDetails.username);
 
         addEventListener();
     }
 
     private void addEventListener() {
-        reference1.addChildEventListener(new ChildEventListener() {
+        firebaseYouAndFriend.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Map map = dataSnapshot.getValue(Map.class);
@@ -113,8 +113,8 @@ public class ChatActivity extends BaseActivity {
             Map<String, String> map = new HashMap<String, String>();
             map.put("message", messageText);
             map.put("user", UserDetails.username);
-            reference1.push().setValue(map);
-            reference2.push().setValue(map);
+            firebaseYouAndFriend.push().setValue(map);
+            firebaseFriendAndYou.push().setValue(map);
         }
     }
 

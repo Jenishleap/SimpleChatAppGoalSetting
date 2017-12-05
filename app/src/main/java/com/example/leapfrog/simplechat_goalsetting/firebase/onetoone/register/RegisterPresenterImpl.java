@@ -4,6 +4,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.leapfrog.simplechat_goalsetting.BasePresenter;
+import com.example.leapfrog.simplechat_goalsetting.R;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login.LoginRepository;
 import com.google.firebase.database.DatabaseReference;
 
@@ -36,6 +37,7 @@ public class RegisterPresenterImpl extends BasePresenter<RegisterContract.Regist
             return;
         }
 
+        getView().showProgressBar(getContext().getString(R.string.registering_user));
         addSubscription(loginRepository.loginUser(username, password)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new RegisterSubscriber())
@@ -46,17 +48,20 @@ public class RegisterPresenterImpl extends BasePresenter<RegisterContract.Regist
 
         @Override
         public void onNext(JSONObject obj) {
+            getView().hideProgressBar();
             if (!obj.has(username)) {
                 mDatabaseReference.child(username).child("password").setValue(password);
-                Toast.makeText(getView().getContext(), "registration successful", Toast.LENGTH_LONG).show();
+                getView().clearUserInputs();
+                getView().registrationSuccesful();
             } else {
-                Toast.makeText(getView().getContext(), "username already exists", Toast.LENGTH_LONG).show();
+                getView().userNameAlreadyExists();
             }
         }
 
         @Override
         public void onError(Throwable e) {
-            Log.d(TAG, e.getMessage().toString());
+            getView().onFailure(getContext().getString(R.string.error_registering));
+            getView().hideProgressBar();
         }
 
         @Override

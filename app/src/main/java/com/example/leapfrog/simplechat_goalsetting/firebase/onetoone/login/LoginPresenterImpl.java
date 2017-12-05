@@ -4,6 +4,7 @@ package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login;
 import android.widget.Toast;
 
 import com.example.leapfrog.simplechat_goalsetting.BasePresenter;
+import com.example.leapfrog.simplechat_goalsetting.R;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.UserDetails;
 
 import org.json.JSONException;
@@ -33,6 +34,7 @@ public class LoginPresenterImpl extends BasePresenter<LoginContract.LoginView> i
             return;
         }
 
+        getView().showProgressBar(getContext().getString(R.string.loggin_in));
         addSubscription(loginRepository.loginUser(username, password)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new LoginSubscriber()));
@@ -43,17 +45,17 @@ public class LoginPresenterImpl extends BasePresenter<LoginContract.LoginView> i
 
         @Override
         public void onNext(JSONObject jsonObject) {
-
+            getView().hideProgressBar();
             try {
                 if (!jsonObject.has(username)) {
-                    Toast.makeText(getView().getContext(), "user not found", Toast.LENGTH_LONG).show();
-
+                    getView().userNotFound();
                 } else if (jsonObject.getJSONObject(username).getString("password").equals(password)) {
                     UserDetails.username = username;
                     UserDetails.password = password;
+                    getView().emptyUserInputFields();
                     getView().onLoginSuccess();
                 } else {
-                    Toast.makeText(getView().getContext(), "incorrect password", Toast.LENGTH_LONG).show();
+                    getView().passwordIncorrect();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -63,7 +65,8 @@ public class LoginPresenterImpl extends BasePresenter<LoginContract.LoginView> i
 
         @Override
         public void onError(Throwable e) {
-
+            getView().onFailure(getContext().getString(R.string.error_loggin));
+            getView().hideProgressBar();
         }
 
         @Override

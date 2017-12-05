@@ -14,6 +14,12 @@ public class LoginContract {
 
         void onLoginSuccess();
 
+        void emptyUserInputFields();
+
+        void userNotFound();
+
+        void passwordIncorrect();
+
     }
 
     public interface LoginPresenter extends Presenter<LoginView> {

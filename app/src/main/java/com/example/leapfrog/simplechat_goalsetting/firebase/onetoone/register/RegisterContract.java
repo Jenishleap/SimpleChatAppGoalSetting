@@ -17,6 +17,12 @@ public class RegisterContract {
 
         void showPasswordLengthError();
 
+        void clearUserInputs();
+
+        void userNameAlreadyExists();
+
+        void registrationSuccesful();
+
     }
 
     public interface RegisterPresenter extends Presenter<RegisterView> {

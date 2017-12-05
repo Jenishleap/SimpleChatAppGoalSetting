@@ -48,7 +48,7 @@ public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implement
 
 
     @Override
-    public void showProgressBar() {
+    public void showProgressBar(String message) {
 
     }
 

@@ -7,7 +7,7 @@ import android.content.Context;
  */
 public interface BaseView {
 
-    void showProgressBar();
+    void showProgressBar(String message);
 
     void hideProgressBar();
 
