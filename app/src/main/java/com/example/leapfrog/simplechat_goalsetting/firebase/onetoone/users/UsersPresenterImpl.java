@@ -1,6 +1,7 @@
 package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.users;
 
 import com.example.leapfrog.simplechat_goalsetting.BasePresenter;
+import com.example.leapfrog.simplechat_goalsetting.R;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.UserDetails;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.login.LoginRepository;
 
@@ -29,6 +30,9 @@ public class UsersPresenterImpl extends BasePresenter<UsersContract.UsersView> i
 
     @Override
     public void fetchUsers() {
+
+        getView().showProgressBar(null);
+
         addSubscription(loginRepository.loginUser("chandra", "chandra")
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new UsersSubscriber())
@@ -39,14 +43,15 @@ public class UsersPresenterImpl extends BasePresenter<UsersContract.UsersView> i
 
         @Override
         public void onNext(JSONObject jsonObject) {
-
+            getView().hideProgressBar();
             doOnSuccess(jsonObject);
 
         }
 
         @Override
         public void onError(Throwable e) {
-
+            getView().onFailure(getContext().getString(R.string.error_loading_users));
+            getView().hideProgressBar();
         }
 
         @Override
@@ -70,7 +75,6 @@ public class UsersPresenterImpl extends BasePresenter<UsersContract.UsersView> i
         }
 
         if (totalUsers <= 1) {
-
             getView().showUserNoAvailable(true);
             getView().showUsersList(false);
 

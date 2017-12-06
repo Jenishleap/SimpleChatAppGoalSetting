@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ import com.example.leapfrog.simplechat_goalsetting.R;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat.ChatActivity;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.users.UsersContract;
 import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.users.UsersPresenterImpl;
+import com.example.leapfrog.simplechat_goalsetting.utils.UiUtils;
 
 import java.util.ArrayList;
 
@@ -31,6 +33,9 @@ public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implement
 
     @BindView(R.id.noUsersAvailable)
     TextView noUsersAvailable;
+
+    @BindView(R.id.linearlayout_loading_friends)
+    LinearLayout linearLayoutLoadingFriends;
 
     @Override
     protected int getLayout() {
@@ -51,17 +56,18 @@ public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implement
 
     @Override
     public void showProgressBar(String message) {
+        linearLayoutLoadingFriends.setVisibility(View.VISIBLE);
 
     }
 
     @Override
     public void hideProgressBar() {
-
+        linearLayoutLoadingFriends.setVisibility(View.GONE);
     }
 
     @Override
     public void onFailure(String message) {
-
+        UiUtils.showToast(this, message);
     }
 
     @Override

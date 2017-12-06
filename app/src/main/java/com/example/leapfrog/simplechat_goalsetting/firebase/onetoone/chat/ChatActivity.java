@@ -119,6 +119,7 @@ public class ChatActivity extends BaseActivity {
             map.put("user", UserDetails.username);
             firebaseYouAndFriend.push().setValue(map);
             firebaseFriendAndYou.push().setValue(map);
+            clearMessageInput();
         }
     }
 
@@ -137,6 +138,10 @@ public class ChatActivity extends BaseActivity {
 
         layout.addView(textView);
         scrollView.fullScroll(View.FOCUS_DOWN);
+    }
+
+    public void clearMessageInput() {
+        messageArea.setText("");
     }
 
 }
