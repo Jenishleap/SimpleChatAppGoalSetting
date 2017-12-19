@@ -13,7 +13,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import dagger.Module;
 import dagger.Provides;
 
-
 @Module
 public class PresenterModule {
 

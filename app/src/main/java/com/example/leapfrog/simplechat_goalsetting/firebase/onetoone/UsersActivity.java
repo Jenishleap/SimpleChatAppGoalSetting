@@ -57,7 +57,6 @@ public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implement
     @Override
     public void showProgressBar(String message) {
         linearLayoutLoadingFriends.setVisibility(View.VISIBLE);
-
     }
 
     @Override
@@ -112,13 +111,11 @@ public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implement
                 .setCancelable(true)
                 .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
                         finish();
                     }
                 })
                 .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        //  Action for 'NO' Button
                         dialog.cancel();
                     }
                 });

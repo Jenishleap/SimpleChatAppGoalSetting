@@ -10,11 +10,15 @@ public class ChatContract {
 
         void addMessageBox(String message, int type);
 
+        void clearMessageInput();
+
     }
 
     public interface ChatPresenter extends Presenter<ChatView> {
 
         void addChildEventListener();
+
+        void sendMessage(String message);
 
     }
 

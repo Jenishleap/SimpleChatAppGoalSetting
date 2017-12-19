@@ -1,7 +1,6 @@
 package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.register;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.leapfrog.simplechat_goalsetting.BasePresenter;
 import com.example.leapfrog.simplechat_goalsetting.R;
