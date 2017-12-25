@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -51,6 +52,13 @@ public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implement
     @Override
     protected void injectDagger() {
         ((MyApplication) getApplication()).getApplicationComponent().inject(this);
+    }
+
+    @Override
+    protected void setActionBar() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        setTitle(getString(R.string.choose_friends));
     }
 
 
@@ -123,6 +131,14 @@ public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implement
         //Creating dialog box
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return true;
     }
 
 }

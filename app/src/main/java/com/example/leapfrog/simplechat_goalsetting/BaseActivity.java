@@ -22,6 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         //this has to be called first because dagger injection has to be called first
         //and this is root most activity (parent activity) so onCreate of this class
         //gets called first before onCreate of child activities
+        setActionBar();
         injectDagger();
     }
 
@@ -32,5 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract void injectDagger();
+
+    protected abstract void setActionBar();
 
 }

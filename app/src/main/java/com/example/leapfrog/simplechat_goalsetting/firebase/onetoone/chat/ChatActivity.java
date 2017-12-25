@@ -3,6 +3,7 @@ package com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.chat;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.example.leapfrog.simplechat_goalsetting.MvpBaseActivity;
 import com.example.leapfrog.simplechat_goalsetting.MyApplication;
 import com.example.leapfrog.simplechat_goalsetting.R;
+import com.example.leapfrog.simplechat_goalsetting.firebase.onetoone.UserDetails;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -46,6 +48,13 @@ public class ChatActivity extends MvpBaseActivity<ChatPresenterImpl> implements 
     @Override
     protected void injectDagger() {
         ((MyApplication) getApplication()).getApplicationComponent().inject(this);
+    }
+
+    @Override
+    protected void setActionBar() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        setTitle(UserDetails.chatWith);
     }
 
     @OnClick(R.id.sendButton)
@@ -95,6 +104,14 @@ public class ChatActivity extends MvpBaseActivity<ChatPresenterImpl> implements 
     @Override
     public Context getContext() {
         return this;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return true;
     }
 
 }

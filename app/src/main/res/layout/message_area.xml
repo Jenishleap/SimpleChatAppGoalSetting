@@ -13,6 +13,7 @@
         android:layout_weight="1"
         android:hint="Write a message..."
         android:maxHeight="80dp"
+        android:singleLine="true"
         android:textColor="#CFD8DC"
         android:textColorHint="#CFD8DC" />
 

@@ -54,6 +54,11 @@ public class LoginActivity extends MvpBaseActivity<LoginPresenterImpl> implement
         ((MyApplication) getApplication()).getApplicationComponent().inject(this);
     }
 
+    @Override
+    protected void setActionBar() {
+
+    }
+
     @OnClick(R.id.register)
     public void startRegisterActivity() {
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));

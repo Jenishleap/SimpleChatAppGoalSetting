@@ -16,4 +16,5 @@
     <string name="loading_friends">Loading Friends...</string>
     <string name="error_loading_users">Error Loading Users</string>
     <string name="cannot_send_empty_message">Cannot send empty message</string>
+    <string name="choose_friends">Choose Friends</string>
 </resources>

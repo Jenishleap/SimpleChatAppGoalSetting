@@ -64,6 +64,11 @@ public class RegisterActivity extends MvpBaseActivity<RegisterPresenterImpl> imp
     }
 
     @Override
+    protected void setActionBar() {
+
+    }
+
+    @Override
     public void showProgressBar(String message) {
         dialog.setMessage(message);
         dialog.setCancelable(false);
