@@ -61,6 +61,7 @@ public class LoginActivity extends MvpBaseActivity<LoginPresenterImpl> implement
 
     @OnClick(R.id.register)
     public void startRegisterActivity() {
+        finish();
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
     }
 
