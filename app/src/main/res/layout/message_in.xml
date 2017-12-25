@@ -7,19 +7,17 @@
         android:id="@+id/message_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:text="ffd"
         android:textStyle="normal|bold" />
 
     <TextView
         android:id="@+id/message_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/message_user"
         android:layout_marginTop="5dp"
+        android:text="ffd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="18sp" />
 
@@ -27,8 +25,7 @@
         android:id="@+id/message_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/message_user"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true" />
+        android:layout_below="@id/message_text"
+        android:text="ffd" />
 
 </RelativeLayout>

@@ -2,13 +2,10 @@ package com.example.leapfrog.simplechat_goalsetting;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import javax.inject.Inject;
 
-
-/**
- * Created by leapfrog on 11/17/17.
- */
 
 public class MyApplication extends Application {
 
@@ -18,18 +15,23 @@ public class MyApplication extends Application {
     Context context;
 
     @Override
+    protected void attachBaseContext(Context context) {
+        super.attachBaseContext(context);
+        MultiDex.install(this);
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
-
-        /*mApplicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(this))
-                .build();*/
-
-//        initializeRealm();
     }
 
-    private void initializeRealm() {
-        /*RealmConfiguration config = new RealmConfiguration.Builder(context).build();
-        Realm.setDefaultConfiguration(config);*/
+    public ApplicationComponent getApplicationComponent() {
+        if (mApplicationComponent == null) {
+            mApplicationComponent = DaggerApplicationComponent.builder()
+                    .applicationModule(new ApplicationModule(this))
+                    .build();
+        }
+        return mApplicationComponent;
     }
+
 }
