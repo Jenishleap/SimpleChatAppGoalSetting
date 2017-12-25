@@ -17,4 +17,10 @@
     <string name="error_loading_users">Error Loading Users</string>
     <string name="cannot_send_empty_message">Cannot send empty message</string>
     <string name="choose_friends">Choose Friends</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="click_here_to_login">Click here to Login</string>
+    <string name="click_here_to_register">Click here to Register</string>
 </resources>

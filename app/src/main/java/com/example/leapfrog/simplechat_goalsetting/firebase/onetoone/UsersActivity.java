@@ -136,7 +136,7 @@ public class UsersActivity extends MvpBaseActivity<UsersPresenterImpl> implement
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish();
+            showLogOutDialog();
         }
         return true;
     }
